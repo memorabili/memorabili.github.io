@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+{% for category in site.data.quotes %}
+    {% for item in category[1] %}
+        {% assign curitem = item[1] %}
+
+        {% for quote in curitem.quotes %}
+            <blockquote class="quote">
+                <q>{{ quote.q }}</q>
+                <cite>{{ curitem.title }} - {{ curitem.author }} {% if quote.div != "" %}({{ quote.div }}){% endif %}</cite>
+            </blockquote>
+        {% endfor %}
+
+    {% endfor %}
+{% endfor %}
